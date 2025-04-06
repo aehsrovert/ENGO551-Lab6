@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGO551 - Lab 6: Line Simplification</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Line Simplification Tool</h1>
+        
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <p>1. Use the draw tool (top-left of map) to draw a polyline on the map.</p>
+            <p>2. Click "Simplify Line" to create a simplified version of your line.</p>
+            <p>3. Adjust the tolerance to control the level of simplification.</p>
+            <p>4. Click "Clear All" to remove all lines and start over.</p>
+        </div>
+        
+        <div class="controls">
+            <div class="form-group">
+                <label for="tolerance">Simplification Tolerance:</label>
+                <input type="range" id="tolerance" min="0.0001" max="0.01" step="0.0001" value="0.001">
+                <span id="toleranceValue">0.001</span>
+            </div>
+            <div class="form-group buttons">
+                <button id="simplifyBtn" class="btn">Simplify Line</button>
+                <button id="clearBtn" class="btn">Clear All</button>
+            </div>
+        </div>
+        
+        <div id="map"></div>
+        
+        <div class="statistics" id="statistics">
+            <h3>Line Statistics</h3>
+            <div id="original-points">Original points: -</div>
+            <div id="simplified-points">Simplified points: -</div>
+            <div id="reduction">Reduction: -</div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
