@@ -15,18 +15,15 @@ let currentTolerance = parseFloat(toleranceInput.value);
 
 document.addEventListener('DOMContentLoaded', initMap);
 
-toleranceInput.addEventListener('input', function() {
+toleranceInput.addEventListener('input', function () {
     currentTolerance = parseFloat(this.value);
     toleranceValue.textContent = currentTolerance.toFixed(4);
-    
-    if (originalLine) {
-        simplifyLine();
-    }
 });
+
 
 simplifyBtn.addEventListener('click', function() {
     if (!originalLine) {
-        alert('Please draw a line first using the drawing tools in the top-left of the map.');
+        alert('Please draw a line first using the drawing tools in the top-right of the map.');
         return;
     }
     
@@ -90,7 +87,7 @@ function initMap() {
             const points = layer.getLatLngs();
             updateOriginalStatistics(points.length);
             
-            simplifyLine();
+            // Removed auto-simplification here
         }
     });
 
